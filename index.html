@@ -10,6 +10,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -28,7 +34,7 @@
               <form>
                 <div class="mb-3">
                   <label for="latitude" class="form-label" id="latitude">Latitude</label>
-                  <input type="number" class="form-control" />
+                  <input type="text" class="form-control" id="latitudeVal" />
                 </div>
               </form>
             </div>
@@ -36,14 +42,14 @@
               <form>
                 <div class="mb-3">
                   <label for="longitude" class="form-label" id="longitude">Longitude</label>
-                  <input type="number" class="form-control" />
+                  <input type="number" class="form-control" id="longVal" />
                 </div>
               </form>
             </div>
           </div>
           <!-- search button -->
           <div class="d-grid gap-2">
-            <button class="btn btn-primary search" type="button">Search</button>
+            <button class="btn btn-primary search" type="button" id="button">Search</button>
           </div>
         </div>
       </div>
@@ -62,12 +68,13 @@
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy6Y-b0xTM4YiM45Z1Yha-4-GkyNbdT4w&libraries=places"></script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy6Y-b0xTM4YiM45Z1Yha-4-GkyNbdT4w&callback=initMap"
+    ></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 
     <script src="map.js"></script>
-    <script src="ui.js"></script>
-    <script src="app.js"></script>
   </body>
 </html>
