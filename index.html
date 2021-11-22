@@ -34,7 +34,7 @@
               <form>
                 <div class="mb-3">
                   <label for="latitude" class="form-label" id="latitude">Latitude</label>
-                  <input type="text" class="form-control" id="latitudeVal" />
+                  <input type="number" class="form-control" id="latitudeVal" />
                 </div>
               </form>
             </div>
@@ -47,12 +47,15 @@
               </form>
             </div>
           </div>
+
           <!-- search button -->
           <div class="d-grid gap-2">
             <button class="btn btn-primary search" type="button" id="button">Search</button>
           </div>
         </div>
       </div>
+
+      <input type="text" id="example" />
 
       <!-- map -->
       <div class="map mt-3 mx-auto" id="map"></div>
