@@ -18,28 +18,18 @@ function initMap() {
   // create map
   let map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-  // listen for click
-  google.maps.event.addListener(map, "click", (event) => {
-    // Add marker
-    addMarker({ location: event.latLng });
-  });
-
   search.addEventListener("click", () => {
     let latVal = document.getElementById("latitudeVal").value;
     let longVal = document.getElementById("longVal").value;
 
     // create new marker
     let newMarker = {
-      location: { lat: parseInt(latVal), lng: parseInt(longVal) },
+      location: { lat: parseFloat(latVal), lng: parseFloat(longVal) },
       imageIcon: "https://img.icons8.com/nolan/1x/marker.png",
     };
-    // push the new marker into the array
-    addNewMarker(newMarker);
-    console.log(parseFloat(longVal));
-  });
 
-  //  create a function for adding new markerArray
-  function addNewMarker(newMarker) {
+    //  create a function for adding new markerArray
+
     // make an array for the markers
     let markerArray = [
       {
@@ -55,25 +45,33 @@ function initMap() {
         imageIcon: "https://img.icons8.com/nolan/1x/marker.png",
       },
     ];
-
+    // push the new marker into the array
     markerArray.push(newMarker);
+    console.log(markerArray);
+
     // loop to add marker
     for (let i = 0; i < markerArray.length; i++) {
       addMarker(markerArray[i]);
     }
-  }
 
-  // add marker
-  function addMarker(value) {
-    const marker = new google.maps.Marker({
-      position: value.location,
-      map: map,
-    });
+    // add marker
+    function addMarker(value) {
+      const marker = new google.maps.Marker({
+        position: value.location,
+        map: map,
+      });
 
-    // check for custom icon
-    if (value.imageIcon) {
-      // set icon
-      marker.setIcon(value.imageIcon);
+      // check for custom icon
+      if (value.imageIcon) {
+        // set icon
+        marker.setIcon(value.imageIcon);
+      }
     }
-  }
+
+    // listen for click
+    google.maps.event.addListener(map, "click", (event) => {
+      // Add marker
+      addMarker({ location: event.latLng });
+    });
+  });
 }
